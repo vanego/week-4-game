@@ -3,4 +3,9 @@
 	height: 100px;
 }
 
+#beach {
+	width: 100%;
+	height: auto;
+}
+
 #number-to-guess
