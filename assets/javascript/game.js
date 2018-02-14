@@ -19,13 +19,14 @@ function start(){
 
 // everytime the page loads a new target Number will be randomly selected between 19-120.
 function generateTargetNumber(){
-	targetNumber = Math.floor((Math.random() * 102) + 19)
+	targetNumber = Math.floor((Math.random() * 102) + 19);
+	$("#number-to-guess").text(targetNumber);
 	console.log(targetNumber);
 }
 
-$("#number-to-guess").text(targetNumber);
 
-alert ("Click on the images until you reach the target Number. All four images have different values assigned to them.")
+
+alert ("Click on the images until you reach the target Number. All four images have different values assigned to them.");
 // // each of the four pictures will have a random value assigned to them. (use the math.random function to assign random values to the four pictures) (use the slide show images array.
 function generateRandomValues () {
 	for (var index = 0; index < imageCrystals.length; index++) {
@@ -45,9 +46,12 @@ function generateRandomValues () {
 // as the player selects a picture, the counter will increase according to the images assigned value.
 $(".crystal-image").on("click", function() {
 
+	console.log("I was clicked!");
+
 	var crystalValue = ($(this).attr("value"));
 	crystalValue = parseInt(crystalValue);
 	counter += crystalValue;
+	$("#counter").text(counter);
 
 	
 	// alert("New score: " + counter); show counter on html
