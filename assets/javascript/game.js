@@ -3,7 +3,7 @@ var targetNumber;
 var counter = 0;
 var wins = 0;
 var loss = 0;
-var imageCrystals = ["assets/images/pearl.jpg", "assets/images/starfish.jpg", "assets/images/turtle-png.jpg", "assets/images/chest.png"];
+var imageCrystals = ["assets/images/shell.png", "assets/images/starfish.gif", "assets/images/turtle-png.png", "assets/images/chest.png"];
 
 // restart function will set the counter to zero,
 // generate a new target number
@@ -17,7 +17,6 @@ function start(){
 	// call function to update counter in html
 }
 
-
 // everytime the page loads a new target Number will be randomly selected between 19-120.
 function generateTargetNumber(){
 	targetNumber = Math.floor((Math.random() * 102) + 19)
@@ -26,7 +25,7 @@ function generateTargetNumber(){
 
 $("#number-to-guess").text(targetNumber);
 
-
+alert ("Click on the images until you reach the target Number. All four images have different values assigned to them.")
 // // each of the four pictures will have a random value assigned to them. (use the math.random function to assign random values to the four pictures) (use the slide show images array.
 function generateRandomValues () {
 	for (var index = 0; index < imageCrystals.length; index++) {
@@ -49,28 +48,28 @@ $(".crystal-image").on("click", function() {
 	var crystalValue = ($(this).attr("value"));
 	crystalValue = parseInt(crystalValue);
 	counter += crystalValue;
+
+	
 	// alert("New score: " + counter); show counter on html
-
-
+	$("#counterNumber").text(counter);
 
 	// if player wins must accurately reach the target number
 	if (counter === targetNumber) {
 		alert ("You Win!");
 		start();
 		wins++;
+		$("#wins").text(wins);
 		// show wins on html .text jquery
 	}
-
 
 	// if player exeeds target number, then player loses.
 	else if (counter > targetNumber) {
 		alert ("You lose!");
 		start();
 		loss++;
+		$("#loss").text(loss);
 		// show loss on html
 	}
 });
 
 start();
-
-
